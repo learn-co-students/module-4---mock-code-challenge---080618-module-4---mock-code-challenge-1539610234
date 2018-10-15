@@ -1,20 +1,26 @@
 import React, { Fragment } from 'react'
 
-const Sushi = (props) => {
+const Sushi = props => {
+  const {name, img_url, price, eaten} = props
+
+  function handleClick(){
+    props.handleEaten(props.id, price)
+  }
+
   return (
     <div className="sushi">
-      <div className="plate" 
-           onClick={/* Give me a callback! */ null}>
-        { 
-          /* Tell me if this sushi has been eaten! */ 
-          true ?
+      <div className="plate"
+           onClick={handleClick.bind(this)}>
+        {
+          /* Tell me if this sushi has been eaten! */
+          eaten ?
             null
           :
-            <img src={/* Give me an image source! */} width="100%" />
+            <img src={img_url} width="100%" />
         }
       </div>
       <h4 className="sushi-details">
-        {/* Give me a name! */} - ${/* Give me a price! */}
+        {name} - ${price}
       </h4>
     </div>
   )
