@@ -7,7 +7,7 @@ const SushiContainer = (props) => {
     <Fragment>
       <div className="belt">
         {
-          props.sushis.map(sushi => <Sushi handleSushiClick={props.handleSushiClick} sushi={sushi}/>)
+          props.sushis.map(sushi => <Sushi key={sushi.id} handleSushiClick={props.handleSushiClick} eaten={props.eaten} sushi={sushi}/>)
         }
         <MoreButton handleMoreClick={props.handleMoreClick}/>
       </div>
